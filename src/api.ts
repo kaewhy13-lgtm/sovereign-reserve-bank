@@ -51,7 +51,13 @@ export async function apiCall<T = unknown>(
       body: body !== undefined ? JSON.stringify(body) : undefined,
     });
 
-    const data = await res.json();
+    const responseText = await res.text();
+    let data: any;
+    try {
+      data = JSON.parse(responseText);
+    } catch {
+      data = { error: responseText };
+    }
 
     if (!res.ok) {
       return { data: null, error: data.error || `HTTP ${res.status}`, status: res.status };

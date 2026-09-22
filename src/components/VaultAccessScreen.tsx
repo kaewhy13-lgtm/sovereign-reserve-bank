@@ -142,28 +142,9 @@ export const VaultAccessScreen: React.FC<VaultAccessScreenProps> = ({
         {/* Top hairline gradient */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#bcdafe] via-[#446180] to-[#0d1c32]"></div>
 
-        {/* Saved Profile Strip */}
+        {/* Sign‑In Header */}
         <div className="flex items-center justify-between bg-[#eef4fc] p-3 rounded-lg border border-[#dde3eb]">
-          <div className="flex items-center gap-2.5 min-w-0">
-            <div className="w-8 h-8 rounded-full bg-[#0d1c32] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
-              <span className="material-symbols-outlined text-[18px]">account_balance_wallet</span>
-            </div>
-            <div className="flex flex-col min-w-0">
-              <span className="text-[10px] font-semibold text-[#44474d] uppercase tracking-wider">
-                Saved Profile
-              </span>
-              <span className="text-sm font-semibold text-[#161c22] truncate">
-                {profile.name} {profile.accountNumberMasked}
-              </span>
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={handleAutofill}
-            className="px-3 py-1 bg-[#dde3eb] hover:bg-[#c5c6cd] text-[#161c22] text-xs font-semibold rounded transition-colors flex-shrink-0"
-          >
-            Use
-          </button>
+          <span className="text-sm font-semibold text-[#161c22]">Sign in to access your vault</span>
         </div>
 
         {/* Credentials Form */}
@@ -274,7 +255,7 @@ export const VaultAccessScreen: React.FC<VaultAccessScreenProps> = ({
               ) : (
                 <>
                   <span className="material-symbols-outlined text-[18px]">vpn_key</span>
-                  <span>Log In Securely</span>
+                  <span>Sign In</span>
                 </>
               )}
             </button>
