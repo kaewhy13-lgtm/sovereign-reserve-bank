@@ -16,11 +16,8 @@ interface VaultAccessScreenProps {
   onClearError?: () => void;
 }
 
-const DEMO_PASSWORDS: Record<string, string> = {
-  'alexander.vanderbilt': 'vault-alpha-8821',
-  'trust.officer@vanderbilt.reserve': 'vault-wealth-1904',
-  'treasury@apex-capital.corp': 'vault-corp-4410',
-};
+// Demo passwords removed; users must provide their own credentials
+const DEMO_PASSWORDS: Record<string, string> = {};
 
 export const VaultAccessScreen: React.FC<VaultAccessScreenProps> = ({
   selectedTab,
@@ -36,8 +33,8 @@ export const VaultAccessScreen: React.FC<VaultAccessScreenProps> = ({
   authError,
   onClearError,
 }) => {
-  const [userId, setUserId] = useState(profile.username);
-  const [passcode, setPasscode] = useState(DEMO_PASSWORDS[profile.username] || 'vault-alpha-8821');
+  const [userId, setUserId] = useState('');
+  const [passcode, setPasscode] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
@@ -50,11 +47,7 @@ export const VaultAccessScreen: React.FC<VaultAccessScreenProps> = ({
     setAuthSuccess(false);
   }, [profile]);
 
-  const handleAutofill = () => {
-    setUserId(profile.username);
-    setPasscode(DEMO_PASSWORDS[profile.username] || 'vault-alpha-8821');
-    onClearError?.();
-  };
+  // handleAutofill removed – login requires manual entry
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

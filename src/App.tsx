@@ -53,10 +53,9 @@ export default function App() {
     setAuthError(null);
     const { data, error } = await AuthAPI.login(userId, passcode, true);
     if (error || !data) {
-      // If any error occurs (including JSON parsing issues), assume static fallback mode
-      setIsAuthenticated(true);
-      setActiveNav('vault');
-      return true;
+      setAuthError(error || 'Login failed');
+      setIsAuthenticated(false);
+      return false;
     }
     setToken(data.token);
     setApiProfile(data.profile as Record<string, unknown>);
