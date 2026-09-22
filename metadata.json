@@ -1,0 +1,6 @@
+{
+  "name": "Sovereign Reserve",
+  "description": "Personal & Commercial Banking Portal featuring bank-grade security, biometric authentication, private wealth management, and vault access.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
